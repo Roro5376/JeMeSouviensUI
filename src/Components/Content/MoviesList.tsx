@@ -21,7 +21,7 @@ export default function MoviesList({ movies }) {
                 src={
                   movie.poster_path !== null
                     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                    : "/Drapeau_Québécois.png"
+                    : `${process.env.PUBLIC_URL}/Drapeau_Québécois.png`
                 }
                 alt={movie.title}
                 className="w-full h-full object-cover rounded-lg"

@@ -16,7 +16,7 @@ export default function RegisterUser() {
           <p className="text-gray-300">City: {user.city}, {user.country}</p>
           <p className="text-gray-300">Date of Birth: {user.dateOfBirth}</p>
           <img
-            src="/Drapeau_Québécois.png"
+            src={`${process.env.PUBLIC_URL}/Drapeau_Québécois.png`}
             className="w-24 h-24 rounded-full border-2 border-white mt-4"
             alt="Avatar"
           />

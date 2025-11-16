@@ -15,7 +15,7 @@ const Header = () => {
             {user.firstName} {user.lastName}
           </span>
           <img
-            src="/Drapeau_Québécois.png"
+            src={`${process.env.PUBLIC_URL}/Drapeau_Québécois.png`}
             className="w-10 h-10 rounded-full border-2 border-white"
             alt="Avatar"
           />
@@ -25,7 +25,7 @@ const Header = () => {
       <div className="w-full h-50 bg-cover bg-center flex items-center justify-center relative pt-14">
         <div className="absolute inset-0 bg-white/10 border-y-4 border-white/60 z-10 top-20 bottom-5"></div>
         <img
-          src="/Logo.png"
+          src={`${process.env.PUBLIC_URL}/Logo.png`}
           alt="Top Banner"
           className="max-w-full max-h-48 object-contain "
         />
