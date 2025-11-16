@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   });
   const navigate = useNavigate();
 
-  const login = async (username, password) => {
+  const login = async (username, password) =>  {
     try {
       console.log("Attempting login with username:", username);
       const response = await fetch("https://jemesouviens-h3evekbjf5bkcre7.centralus-01.azurewebsites.net/user/login", {
