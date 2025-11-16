@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     try {
       console.log("Attempting login with username:", username);
-      const response = await fetch("http://localhost:8080/user/login", {
+      const response = await fetch("https://jemesouviens-h3evekbjf5bkcre7.centralus-01.azurewebsites.net/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),

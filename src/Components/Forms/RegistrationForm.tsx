@@ -79,7 +79,7 @@ export default function RegistrationForm() {
 
     const { confirmPassword, ...userData } = formData;
     try {
-      const response = await fetch("http://localhost:8080/user/register", {
+      const response = await fetch("https://jemesouviens-h3evekbjf5bkcre7.centralus-01.azurewebsites.net/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
