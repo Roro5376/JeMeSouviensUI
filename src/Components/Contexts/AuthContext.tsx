@@ -11,14 +11,18 @@ export const AuthProvider = ({ children }) => {
   });
   const navigate = useNavigate();
 
+  // Login function
   const login = async (username, password) =>  {
     try {
       console.log("Attempting login with username:", username);
-      const response = await fetch("https://jemesouviens-h3evekbjf5bkcre7.centralus-01.azurewebsites.net/user/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://jemesouviens-h3evekbjf5bkcre7.centralus-01.azurewebsites.net/user/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       console.log("Login response status:", response.status);
       const responseData = await response
@@ -38,10 +42,11 @@ export const AuthProvider = ({ children }) => {
       navigate("/");
     } catch (error) {
       console.error("Login error:", error.message);
-      throw error; // Re-throw the error so the login form can handle it
+      throw error;
     }
   };
 
+  // Logout function
   const logout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
@@ -49,8 +54,32 @@ export const AuthProvider = ({ children }) => {
     navigate("/login");
   };
 
+  // **Safe fetch for backend requests**
+  const fetchWithAuth = async (url, options = {}) => {
+    const token = localStorage.getItem("token");
+    const headers = {
+      "Content-Type": "application/json",
+      ...(options.headers || {}),
+    };
+
+    // Only add Authorization if token exists
+    if (token) headers["Authorization"] = `Bearer ${token}`;
+
+    const response = await fetch(url, {
+      ...options,
+      headers,
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || `Request failed with status ${response.status}`);
+    }
+
+    return response.json();
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, fetchWithAuth }}>
       {children}
     </AuthContext.Provider>
   );
