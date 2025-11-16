@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/JeMeSouviensUI/static/css/main.77735181.css",
-    "main.js": "/JeMeSouviensUI/static/js/main.0fb2de2c.js",
+    "main.js": "/JeMeSouviensUI/static/js/main.973f5d8e.js",
     "index.html": "/JeMeSouviensUI/index.html",
     "main.77735181.css.map": "/JeMeSouviensUI/static/css/main.77735181.css.map",
-    "main.0fb2de2c.js.map": "/JeMeSouviensUI/static/js/main.0fb2de2c.js.map"
+    "main.973f5d8e.js.map": "/JeMeSouviensUI/static/js/main.973f5d8e.js.map"
   },
   "entrypoints": [
     "static/css/main.77735181.css",
-    "static/js/main.0fb2de2c.js"
+    "static/js/main.973f5d8e.js"
   ]
 }
